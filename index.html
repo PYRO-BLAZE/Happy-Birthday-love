@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+  <title>Happy Birthday 🎉</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+  
+  <audio id="bg-music" loop autoplay>
+    <source src="birthday-song.mp3" type="audio/mpeg">
+  </audio>
+  
+  <div class="music‑control">
+    <button id="music-toggle">🔇</button>
+  </div>
+  
+  <div id="particles"></div>
+  
+  <div class="header‑container">
+    <h1 class="neon‑text">Happy Birthday, ❤️ [Her Name] ❤️</h1>
+  </div>
+  
+  <div class="countdown">
+    <div id="timer">
+      <span id="days">0</span> Days 
+      <span id="hours">0</span> Hr 
+      <span id="minutes">0</span> Min 
+      <span id="seconds">0</span> Sec
+    </div>
+  </div>
+  
+  <div class="gift‑container">
+    <button id="giftBtn">🎁 Open Your Surprise!</button>
+  </div>
+  
+  <div id="love‑letter" class="hidden">
+    <h2>To my love,</h2>
+    <p>This is my heart in words... you make every day brighter...</p>
+    <!-- Add your personalized message here -->
+  </div>
+  
+  <div class="gallery">
+    <img src="photo1.jpg" class="active">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+  
+  <canvas id="fireworks"></canvas>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
