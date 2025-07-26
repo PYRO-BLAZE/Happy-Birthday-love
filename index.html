@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Drift Queen</title>
+  <title>Happy Birthday Almas 💖</title>
   <style>
-    /* Reset and background */
     body, html {
       margin: 0;
       padding: 0;
       background-color: #000;
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
-      color: white;
+      color: #fff;
     }
 
-    /* Background Video */
     video#bg-video {
       position: fixed;
       top: 0;
@@ -23,11 +21,10 @@
       width: 100vw;
       height: 100vh;
       object-fit: cover;
-      z-index: -1;
-      opacity: 0.25;
+      z-index: -2;
+      opacity: 0.2;
     }
 
-    /* Rain animation */
     .rain-container {
       position: fixed;
       top: 0;
@@ -36,7 +33,7 @@
       height: 100%;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0;
+      z-index: -1;
     }
 
     .raindrop {
@@ -54,16 +51,14 @@
       }
     }
 
-    /* Neon Header */
     .neon-text {
       text-align: center;
       margin-top: 50px;
       font-size: 3em;
-      color: #00ccff;
-      text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 20px #00ccff;
+      color: #ff66cc;
+      text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff66cc, 0 0 20px #ff66cc;
     }
 
-    /* Tree View */
     .tree-view {
       width: 90%;
       max-width: 400px;
@@ -106,23 +101,40 @@
       display: block;
     }
 
-    /* Gift / Love Letter */
+    /* Surprise Box */
     .gift-container {
       text-align: center;
       margin-top: 30px;
     }
 
-    #love-letter {
-      text-align: center;
-      margin: 20px auto;
+    #surprise-box {
+      display: inline-block;
       padding: 20px;
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.08);
       border-radius: 10px;
-      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px dashed #ff69b4;
+      color: white;
+      font-size: 1.2em;
+      transition: 0.4s;
+      cursor: pointer;
     }
 
-    /* Gallery */
+    #surprise-content {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #surprise-box:hover + #surprise-content,
+    #surprise-box.clicked + #surprise-content {
+      display: block;
+    }
+
     .gallery {
       text-align: center;
       margin: 20px;
@@ -133,11 +145,9 @@
       height: auto;
       border-radius: 10px;
       margin: 10px;
-      display: inline-block;
       border: 2px solid white;
     }
 
-    /* Diary */
     .diary-container {
       width: 90%;
       max-width: 400px;
@@ -172,16 +182,22 @@
       right: 20px;
       z-index: 999;
     }
+
+    @media (hover: none) {
+      #surprise-box:hover + #surprise-content {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- BMW Drift Background Video -->
+  <!-- Background Video -->
   <video autoplay muted loop id="bg-video">
     <source src="bmw-drift.mp4" type="video/mp4" />
   </video>
 
-  <!-- Background Music -->
+  <!-- Music -->
   <audio id="bg-music" autoplay loop>
     <source src="drift-beat.mp3" type="audio/mpeg" />
   </audio>
@@ -192,61 +208,62 @@
   <!-- Rain -->
   <div class="rain-container" id="rain"></div>
 
-  <!-- Neon Name -->
-  <h1 class="neon-text">Happy Birthday, My Drift Queen ❤️</h1>
+  <!-- Neon Header -->
+  <h1 class="neon-text">Happy Birthday Almas 💖</h1>
 
   <!-- Tree View -->
   <div class="tree-view">
     <ul id="myUL">
-      <li><span class="caret">🚗 Our First Ride</span>
+      <li><span class="caret">🌸 First Glance</span>
         <ul class="nested">
-          <li>Smiling in the passenger seat</li>
-          <li>Holding hands at red lights</li>
+          <li>That sparkle in your eyes ✨</li>
+          <li>The smile that changed my world 🌍</li>
         </ul>
       </li>
-      <li><span class="caret">🏁 Drift Moments</span>
+      <li><span class="caret">💖 Moments Together</span>
         <ul class="nested">
-          <li>Watching your favorite BMW spin</li>
-          <li>Dreaming of driving together</li>
+          <li>Laughs that heal 🤗</li>
+          <li>Midnight talks that feel like forever 🌙</li>
         </ul>
       </li>
-      <li><span class="caret">🎂 Your Special Day</span>
+      <li><span class="caret">🎂 Today</span>
         <ul class="nested">
-          <li>This surprise page</li>
-          <li>My eternal love</li>
+          <li>This sweet surprise 🎁</li>
+          <li>And my love that never ends ❤️</li>
         </ul>
       </li>
     </ul>
   </div>
 
-  <!-- Gift -->
+  <!-- Surprise Box -->
   <div class="gift-container">
-    <button onclick="document.getElementById('love-letter').style.display='block'">🎁 Open Your Surprise</button>
-  </div>
-
-  <!-- Love Letter -->
-  <div id="love-letter">
-    <h2>To My BMW-Loving Queen</h2>
-    <p>From burning rubber to burning hearts — you drifted straight into my soul. May your birthday be filled with joy, horsepower, and hugs. ❤️</p>
+    <div id="surprise-box">🎁 Tap or Hover to Reveal</div>
+    <div id="surprise-content">
+      <h2>To My Beautiful Almas 💕</h2>
+      <p>You're not just the girl of my dreams — you're the one who makes reality better than dreams. 🥹</p>
+      <p>I love how you light up every moment, like a spark drifting through my world. On this special day, I just want to say:</p>
+      <p><strong>“If I had a flower for every time I thought of you… I could walk in my garden forever.” 🌸🌹</strong></p>
+      <p>Happy Birthday, my love. Forever yours. 💞</p>
+    </div>
   </div>
 
   <!-- Gallery -->
   <div class="gallery">
-    <img src="bmw1.jpg" alt="BMW Drift 1">
-    <img src="bmw2.jpg" alt="BMW Drift 2">
-    <img src="bmw3.jpg" alt="BMW Drift 3">
+    <img src="almas1.jpg" alt="Almas 1">
+    <img src="almas2.jpg" alt="Almas 2">
+    <img src="almas3.jpg" alt="Almas 3">
   </div>
 
   <!-- Diary -->
   <div class="diary-container">
-    <textarea id="diary" placeholder="Write your birthday message..."></textarea>
+    <textarea id="diary" placeholder="Write your heart out here for her..."></textarea>
     <br>
     <button id="saveDiary">Save</button>
   </div>
 
-  <!-- JavaScript -->
+  <!-- JS -->
   <script>
-    // Toggle music
+    // Music Toggle
     document.getElementById("music-toggle").onclick = function () {
       const music = document.getElementById("bg-music");
       if (music.paused) {
@@ -258,7 +275,7 @@
       }
     };
 
-    // Tree expand
+    // Tree Expand
     const toggler = document.getElementsByClassName("caret");
     for (let i = 0; i < toggler.length; i++) {
       toggler[i].addEventListener("click", function () {
@@ -267,7 +284,7 @@
       });
     }
 
-    // Rain effect
+    // Rain
     function createRainDrop() {
       const drop = document.createElement('div');
       drop.classList.add('raindrop');
@@ -278,7 +295,14 @@
       setTimeout(() => drop.remove(), 2000);
     }
     setInterval(createRainDrop, 50);
+
+    // Click fallback for mobile
+    document.getElementById('surprise-box').addEventListener('click', function () {
+      this.classList.toggle('clicked');
+    });
   </script>
 
 </body>
 </html>
+
+  
