@@ -3,49 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday, My Love</title>
+  <title>Happy Birthday Drift Queen</title>
   <style>
+    /* Reset and background */
     body, html {
       margin: 0;
       padding: 0;
       background-color: #000;
-      color: white;
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
+      color: white;
     }
 
+    /* Background Video */
     video#bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.25;
+    }
+
+    /* Rain animation */
+    .rain-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.2;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
 
+    .raindrop {
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Neon Header */
     .neon-text {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 3em;
-      color: #ff4da6;
-      text-shadow: 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6;
+      color: #00ccff;
+      text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 20px #00ccff;
     }
 
-    .music-control {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-    }
-
-    /* Tree view styling */
+    /* Tree View */
     .tree-view {
-      width: 300px;
+      width: 90%;
+      max-width: 400px;
       margin: 30px auto;
       padding: 15px;
-      border: 1px solid #ff4da6;
+      border: 2px solid #ff4da6;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.05);
     }
@@ -82,32 +106,7 @@
       display: block;
     }
 
-    /* Rain effect */
-    .rain-container {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .raindrop {
-      position: absolute;
-      width: 2px;
-      height: 15px;
-      background: rgba(255, 255, 255, 0.2);
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-    }
-
+    /* Gift / Love Letter */
     .gift-container {
       text-align: center;
       margin-top: 30px;
@@ -115,13 +114,15 @@
 
     #love-letter {
       text-align: center;
-      margin: 20px;
+      margin: 20px auto;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 10px;
       display: none;
     }
 
+    /* Gallery */
     .gallery {
       text-align: center;
       margin: 20px;
@@ -133,8 +134,10 @@
       border-radius: 10px;
       margin: 10px;
       display: inline-block;
+      border: 2px solid white;
     }
 
+    /* Diary */
     .diary-container {
       width: 90%;
       max-width: 400px;
@@ -162,18 +165,25 @@
       color: white;
       cursor: pointer;
     }
+
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
+  <!-- BMW Drift Background Video -->
   <video autoplay muted loop id="bg-video">
-    <source src="background.mp4" type="video/mp4" />
+    <source src="bmw-drift.mp4" type="video/mp4" />
   </video>
 
   <!-- Background Music -->
   <audio id="bg-music" autoplay loop>
-    <source src="birthday-song.mp3" type="audio/mpeg" />
+    <source src="drift-beat.mp3" type="audio/mpeg" />
   </audio>
   <div class="music-control">
     <button id="music-toggle">🔇</button>
@@ -182,61 +192,61 @@
   <!-- Rain -->
   <div class="rain-container" id="rain"></div>
 
-  <!-- Header -->
-  <h1 class="neon-text">Happy Birthday, ❤️ [Her Name] ❤️</h1>
+  <!-- Neon Name -->
+  <h1 class="neon-text">Happy Birthday, My Drift Queen ❤️</h1>
 
   <!-- Tree View -->
   <div class="tree-view">
     <ul id="myUL">
-      <li><span class="caret">🌸 First Time We Met</span>
+      <li><span class="caret">🚗 Our First Ride</span>
         <ul class="nested">
-          <li>💬 That sweet hello</li>
-          <li>😊 Your lovely smile</li>
+          <li>Smiling in the passenger seat</li>
+          <li>Holding hands at red lights</li>
         </ul>
       </li>
-      <li><span class="caret">💌 Our Journey</span>
+      <li><span class="caret">🏁 Drift Moments</span>
         <ul class="nested">
-          <li>📱 Late night chats</li>
-          <li>🎶 Shared playlists</li>
+          <li>Watching your favorite BMW spin</li>
+          <li>Dreaming of driving together</li>
         </ul>
       </li>
-      <li><span class="caret">🎁 Birthday Surprises</span>
+      <li><span class="caret">🎂 Your Special Day</span>
         <ul class="nested">
-          <li>🎉 This webpage</li>
-          <li>📖 A diary for you</li>
+          <li>This surprise page</li>
+          <li>My eternal love</li>
         </ul>
       </li>
     </ul>
   </div>
 
-  <!-- Gift Section -->
+  <!-- Gift -->
   <div class="gift-container">
-    <button onclick="document.getElementById('love-letter').style.display='block'">🎁 Open Your Surprise!</button>
+    <button onclick="document.getElementById('love-letter').style.display='block'">🎁 Open Your Surprise</button>
   </div>
 
   <!-- Love Letter -->
   <div id="love-letter">
-    <h2>To My Love,</h2>
-    <p>You are the most beautiful part of my life. Every moment with you is a blessing. Happy Birthday! 💖</p>
+    <h2>To My BMW-Loving Queen</h2>
+    <p>From burning rubber to burning hearts — you drifted straight into my soul. May your birthday be filled with joy, horsepower, and hugs. ❤️</p>
   </div>
 
   <!-- Gallery -->
   <div class="gallery">
-    <img src="photo1.jpg" alt="Memory 1" />
-    <img src="photo2.jpg" alt="Memory 2" />
-    <img src="photo3.jpg" alt="Memory 3" />
+    <img src="bmw1.jpg" alt="BMW Drift 1">
+    <img src="bmw2.jpg" alt="BMW Drift 2">
+    <img src="bmw3.jpg" alt="BMW Drift 3">
   </div>
 
   <!-- Diary -->
   <div class="diary-container">
-    <textarea id="diary" placeholder="Write a birthday wish or your thoughts..."></textarea>
+    <textarea id="diary" placeholder="Write your birthday message..."></textarea>
     <br>
     <button id="saveDiary">Save</button>
   </div>
 
   <!-- JavaScript -->
   <script>
-    // Music toggle
+    // Toggle music
     document.getElementById("music-toggle").onclick = function () {
       const music = document.getElementById("bg-music");
       if (music.paused) {
@@ -248,7 +258,7 @@
       }
     };
 
-    // Tree toggle
+    // Tree expand
     const toggler = document.getElementsByClassName("caret");
     for (let i = 0; i < toggler.length; i++) {
       toggler[i].addEventListener("click", function () {
@@ -257,7 +267,7 @@
       });
     }
 
-    // Rain drops
+    // Rain effect
     function createRainDrop() {
       const drop = document.createElement('div');
       drop.classList.add('raindrop');
