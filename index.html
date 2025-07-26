@@ -1,58 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
-  <title>Happy Birthday 🎉</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Happy Birthday Surprise</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <video autoplay muted loop id="bg-video">
-    <source src="background.mp4" type="video/mp4">
+    <source src="background.mp4" type="video/mp4"/>
   </video>
-  
+
   <audio id="bg-music" loop autoplay>
-    <source src="birthday-song.mp3" type="audio/mpeg">
+    <source src="birthday-song.mp3" type="audio/mpeg"/>
   </audio>
-  
-  <div class="music‑control">
+  <div class="music-control">
     <button id="music-toggle">🔇</button>
   </div>
-  
+
   <div id="particles"></div>
-  
-  <div class="header‑container">
-    <h1 class="neon‑text">Happy Birthday, ❤️ [Almas Khan] ❤️</h1>
+  <div class="rain-container" id="rain"></div>
+
+  <div class="tree-container">
+    <div class="tree">
+      <div class="branch branch1"></div>
+      <div class="branch branch2"></div>
+      <div class="branch branch3"></div>
+      <div class="flower f1"></div><div class="flower f2"></div><div class="flower f3"></div>
+      <div class="flower f4"></div><div class="flower f5"></div><div class="flower f6"></div>
+    </div>
   </div>
-  
+
+  <div class="header-container">
+    <h1 class="neon-text">Happy Birthday, ❤️ [Her Name] ❤️</h1>
+  </div>
+
   <div class="countdown">
     <div id="timer">
-      <span id="days">0</span> Days 
-      <span id="hours">0</span> Hr 
-      <span id="minutes">0</span> Min 
+      <span id="days">0</span> Days
+      <span id="hours">0</span> Hr
+      <span id="minutes">0</span> Min
       <span id="seconds">0</span> Sec
     </div>
   </div>
-  
-  <div class="gift‑container">
+
+  <div class="gift-container">
     <button id="giftBtn">🎁 Open Your Surprise!</button>
   </div>
-  
-  <div id="love‑letter" class="hidden">
+  <div id="love-letter" class="hidden">
     <h2>To my love,</h2>
     <p>This is my heart in words... you make every day brighter...</p>
-    <!-- Add your personalized message here -->
   </div>
-  
+
   <div class="gallery">
-    <img src="photo1.jpg" class="active">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+    <img src="photo1.jpg" class="active"/>
+    <img src="photo2.jpg"/>
+    <img src="photo3.jpg"/>
   </div>
-  
+
+  <div class="diary-container">
+    <textarea id="diary" placeholder="Write your birthday wishes or diary here..."></textarea>
+    <button id="saveDiary">Save</button>
+  </div>
+
   <canvas id="fireworks"></canvas>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
-
