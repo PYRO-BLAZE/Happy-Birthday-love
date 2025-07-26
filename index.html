@@ -1,70 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Happy Birthday Surprise</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, My Love</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    video#bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    .neon-text {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 3em;
+      color: #ff4da6;
+      text-shadow: 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6;
+    }
+
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    /* Tree view styling */
+    .tree-view {
+      width: 300px;
+      margin: 30px auto;
+      padding: 15px;
+      border: 1px solid #ff4da6;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    ul, #myUL {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .caret {
+      cursor: pointer;
+      user-select: none;
+      color: #ff69b4;
+      font-weight: bold;
+    }
+
+    .caret::before {
+      content: "\\25B6";
+      color: #ff69b4;
+      display: inline-block;
+      margin-right: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .caret-down::before {
+      transform: rotate(90deg);
+    }
+
+    .nested {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    /* Rain effect */
+    .rain-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .raindrop {
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    .gift-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #love-letter {
+      text-align: center;
+      margin: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      display: none;
+    }
+
+    .gallery {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px;
+      display: inline-block;
+    }
+
+    .diary-container {
+      width: 90%;
+      max-width: 400px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    #diary {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      background-color: #111;
+      color: white;
+      resize: none;
+    }
+
+    #saveDiary {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #ff69b4;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Background Video -->
   <video autoplay muted loop id="bg-video">
-    <source src="background.mp4" type="video/mp4"/>
+    <source src="background.mp4" type="video/mp4" />
   </video>
 
-  <audio id="bg-music" loop autoplay>
-    <source src="birthday-song.mp3" type="audio/mpeg"/>
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="birthday-song.mp3" type="audio/mpeg" />
   </audio>
   <div class="music-control">
     <button id="music-toggle">🔇</button>
   </div>
 
-  <div id="particles"></div>
+  <!-- Rain -->
   <div class="rain-container" id="rain"></div>
 
-  <div class="tree-container">
-    <div class="tree">
-      <div class="branch branch1"></div>
-      <div class="branch branch2"></div>
-      <div class="branch branch3"></div>
-      <div class="flower f1"></div><div class="flower f2"></div><div class="flower f3"></div>
-      <div class="flower f4"></div><div class="flower f5"></div><div class="flower f6"></div>
-    </div>
+  <!-- Header -->
+  <h1 class="neon-text">Happy Birthday, ❤️ [Her Name] ❤️</h1>
+
+  <!-- Tree View -->
+  <div class="tree-view">
+    <ul id="myUL">
+      <li><span class="caret">🌸 First Time We Met</span>
+        <ul class="nested">
+          <li>💬 That sweet hello</li>
+          <li>😊 Your lovely smile</li>
+        </ul>
+      </li>
+      <li><span class="caret">💌 Our Journey</span>
+        <ul class="nested">
+          <li>📱 Late night chats</li>
+          <li>🎶 Shared playlists</li>
+        </ul>
+      </li>
+      <li><span class="caret">🎁 Birthday Surprises</span>
+        <ul class="nested">
+          <li>🎉 This webpage</li>
+          <li>📖 A diary for you</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
-  <div class="header-container">
-    <h1 class="neon-text">Happy Birthday, ❤️ [Her Name] ❤️</h1>
-  </div>
-
-  <div class="countdown">
-    <div id="timer">
-      <span id="days">0</span> Days
-      <span id="hours">0</span> Hr
-      <span id="minutes">0</span> Min
-      <span id="seconds">0</span> Sec
-    </div>
-  </div>
-
+  <!-- Gift Section -->
   <div class="gift-container">
-    <button id="giftBtn">🎁 Open Your Surprise!</button>
-  </div>
-  <div id="love-letter" class="hidden">
-    <h2>To my love,</h2>
-    <p>This is my heart in words... you make every day brighter...</p>
+    <button onclick="document.getElementById('love-letter').style.display='block'">🎁 Open Your Surprise!</button>
   </div>
 
+  <!-- Love Letter -->
+  <div id="love-letter">
+    <h2>To My Love,</h2>
+    <p>You are the most beautiful part of my life. Every moment with you is a blessing. Happy Birthday! 💖</p>
+  </div>
+
+  <!-- Gallery -->
   <div class="gallery">
-    <img src="photo1.jpg" class="active"/>
-    <img src="photo2.jpg"/>
-    <img src="photo3.jpg"/>
+    <img src="photo1.jpg" alt="Memory 1" />
+    <img src="photo2.jpg" alt="Memory 2" />
+    <img src="photo3.jpg" alt="Memory 3" />
   </div>
 
+  <!-- Diary -->
   <div class="diary-container">
-    <textarea id="diary" placeholder="Write your birthday wishes or diary here..."></textarea>
+    <textarea id="diary" placeholder="Write a birthday wish or your thoughts..."></textarea>
+    <br>
     <button id="saveDiary">Save</button>
   </div>
 
-  <canvas id="fireworks"></canvas>
+  <!-- JavaScript -->
+  <script>
+    // Music toggle
+    document.getElementById("music-toggle").onclick = function () {
+      const music = document.getElementById("bg-music");
+      if (music.paused) {
+        music.play();
+        this.textContent = "🔇";
+      } else {
+        music.pause();
+        this.textContent = "🔊";
+      }
+    };
 
-  <script src="script.js"></script>
+    // Tree toggle
+    const toggler = document.getElementsByClassName("caret");
+    for (let i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function () {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+
+    // Rain drops
+    function createRainDrop() {
+      const drop = document.createElement('div');
+      drop.classList.add('raindrop');
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.animationDuration = (0.5 + Math.random()) + 's';
+      drop.style.top = '-20px';
+      document.getElementById('rain').appendChild(drop);
+      setTimeout(() => drop.remove(), 2000);
+    }
+    setInterval(createRainDrop, 50);
+  </script>
+
 </body>
 </html>
